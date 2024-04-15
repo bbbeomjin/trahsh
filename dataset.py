@@ -7,8 +7,12 @@ from PIL import Image
 class MNIST(Dataset):
 
 
-    def __init__(self, data_dir, transform=None):
+    def __init__(self, data_dir):
         self.data_dir = data_dir
+        transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.1307,), (0.3081,))
+        ])
         self.transform = transform
 
        
